@@ -1,2 +1,2 @@
 # API-Project
-Developing a API to exercise my knowlegments on BackEnd skills
+Developing a API to exercise my knowledge on BackEnd skills
