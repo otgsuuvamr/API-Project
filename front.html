@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Test</title>
+  </head>
+  <body>
+    <input id="id" placeholder="ID" />
+    <input id="titulo" placeholder="Título" />
+    <input id="descricao" placeholder="Descrição" />
+    <input id="categoria" placeholder="Categoria" />
+    <button onclick="AddTask()">Adicionar a tarefa</button>
+    <button onclick="DeleteTask()">Excluir a tarefa</button>
+    <script>
+      const API = "http://localhost:3000/tasks/";
+
+      function AddTask() {
+        const titulo = document.getElementById("titulo").value;
+        const descricao = document.getElementById("descricao").value;
+        const categoria = document.getElementById("categoria").value;
+        
+        fetch(API, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ titulo, descricao, categoria }),
+        });
+      }
+
+      function DeleteTask() {
+        const id = document.getElementById("id").value;
+        
+        fetch(API + id, {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+        });
+      }
+    </script>
+  </body>
+</html>
